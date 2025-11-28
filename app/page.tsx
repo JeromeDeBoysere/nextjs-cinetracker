@@ -1,23 +1,31 @@
-import { getPopularMovies } from "@/lib/api/tmdb";
-import Image from "next/image";
-import {MovieCard} from "@/components/MovieCard";
-
-const TMDB_IMAGE_BASE = process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_URL;
+import {
+  getPopularMovies,
+  getTrendingMovies,
+  getUpcomingMovies,
+} from "@/lib/api/tmdb";
+import { MovieSection } from "@/components/MovieSection";
 
 export default async function Home() {
-  const movies = await getPopularMovies();
+  const popularMovies = await getPopularMovies();
+  const trendingMovies = await getTrendingMovies();
+  const upcomingMovies = await getUpcomingMovies();
 
   return (
-    <main className="min-h-screen p-8 bg-gray-50">
-      <h1 className="text-4xl font-bold mb-8 text-gray-900">
-        Films populaires
-      </h1>
+    <main className="min-h-screen bg-gray-50 p-8">
+      <h1 className="mb-8 text-4xl font-bold text-gray-900">Main title</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5 gap-6">
-        {movies.results.slice(0, 12).map((movie) => (
-          <MovieCard movie={movie} key={movie.id} />
-        ))}
-      </div>
+      <MovieSection
+        title="Films populaires"
+        movies={popularMovies.results.slice(0, 8)}
+      />
+      <MovieSection
+        title="Films tendances"
+        movies={trendingMovies.results.slice(0, 8)}
+      />
+      <MovieSection
+        title="Films à venir"
+        movies={upcomingMovies.results.slice(0, 8)}
+      />
     </main>
   );
 }

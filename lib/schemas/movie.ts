@@ -4,7 +4,7 @@ import { z } from "zod";
 export const movieSchema = z.object({
   adult: z.boolean(),
   backdrop_path: z.string().nullable(),
-  genre_ids: z.array(z.number()),
+  genre_ids: z.array(z.number()).optional().default([]),
   id: z.number(),
   original_language: z.string(),
   original_title: z.string(),

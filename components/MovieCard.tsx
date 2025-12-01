@@ -43,17 +43,15 @@ export function MovieCard({ movie }: MovieCardProps) {
 
       <div className="p-4">
         <h2 className="mb-2 line-clamp-2 flex justify-between gap-2 text-lg font-semibold text-gray-800">
-          {movie.title}
+          {movie.id} {movie.title}
           <Button onClick={() => toggleFavorite(movie.id)} variant="outline">
             {isLiked ? "❤️" : "🤍"}
           </Button>
         </h2>
 
-        <p className="mb-3 line-clamp-3 text-sm text-gray-600">
-          {movie.overview}
-        </p>
+        <p className="mb-3 line-clamp-3 text-gray-600">{movie.overview}</p>
 
-        <div className="flex items-center justify-between text-sm text-gray-500">
+        <div className="flex items-center justify-between text-gray-500">
           <span className="flex items-center gap-1 font-medium">
             Note: {movie.vote_average.toFixed(1)}
           </span>

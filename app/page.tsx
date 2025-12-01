@@ -1,9 +1,9 @@
+import { MovieSection } from "@/components/MovieSection";
 import {
   getPopularMovies,
   getTrendingMovies,
   getUpcomingMovies,
 } from "@/lib/api/tmdb";
-import { MovieSection } from "@/components/MovieSection";
 
 export default async function Home() {
   const popularMovies = await getPopularMovies();
@@ -11,8 +11,8 @@ export default async function Home() {
   const upcomingMovies = await getUpcomingMovies();
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
-      <h1 className="mb-8 text-4xl font-bold text-gray-900">Main title</h1>
+    <main className="container mx-auto px-4 py-8">
+      <h1 className="mb-8 text-4xl font-bold">CineTracker</h1>
 
       <MovieSection
         title="Films populaires"

@@ -15,7 +15,7 @@ interface MovieSectionProps {
 export function MovieSection({ title, movies }: MovieSectionProps) {
   return (
     <section className="mb-12">
-      <h2 className="mb-8 text-4xl font-bold text-gray-900">{title}</h2>
+      <h2 className="mb-8 text-3xl font-bold text-gray-900">{title}</h2>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {movies.map((movie: MovieType) => (

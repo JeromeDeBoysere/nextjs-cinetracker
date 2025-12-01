@@ -7,7 +7,7 @@ interface FavoritesStore {
   isFavorite: (moviedId: number) => boolean;
 }
 
-export const useFavoriteStore = create<FavoritesStore>()(
+export const useFavoritesStore = create<FavoritesStore>()(
   persist(
     (set, get) => ({
       favorites: [],

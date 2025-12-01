@@ -1,8 +1,11 @@
-import {
-  moviesResponseSchema,
-  type MoviesResponseType,
-} from "@/lib/schemas/movie";
 import { z } from "zod";
+
+import {
+  movieSchema,
+  moviesResponseSchema,
+  MoviesResponseType,
+  MovieType,
+} from "@/lib/schemas/movie";
 
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 const BASE_URL = process.env.NEXT_PUBLIC_TMDB_BASE_URL;
@@ -40,4 +43,9 @@ export async function getTrendingMovies(): Promise<MoviesResponseType> {
 // Récupérer les films à venir
 export async function getUpcomingMovies(): Promise<MoviesResponseType> {
   return fetchTMDB("/movie/upcoming", moviesResponseSchema);
+}
+
+// Récupérer un film par son id (pour la récupération des infos de chaque favoris)
+export async function getMovieDetails(movieId: number): Promise<MovieType> {
+  return fetchTMDB(`/movie/${movieId}`, movieSchema);
 }

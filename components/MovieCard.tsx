@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { MovieType } from "@/lib/schemas/movie";
+import { useEffect, useState } from "react";
+
 import { Button } from "@/components/ui/button";
-import { useFavoriteStore } from "@/lib/store/useFavoriteStore";
+import { MovieType } from "@/lib/schemas/movie";
+import { useFavoritesStore } from "@/lib/store/useFavoritesStore";
 
 const TMDB_IMAGE_BASE = process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_URL;
 
@@ -12,7 +14,15 @@ interface MovieCardProps {
 }
 
 export function MovieCard({ movie }: MovieCardProps) {
-  const { toggleFavorite, isFavorite } = useFavoriteStore();
+  const [mounted, setMounted] = useState(false);
+  const { toggleFavorite, isFavorite } = useFavoritesStore();
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  const isLiked = mounted && isFavorite(movie.id);
 
   return (
     <div className="overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-xl">
@@ -35,7 +45,7 @@ export function MovieCard({ movie }: MovieCardProps) {
         <h2 className="mb-2 line-clamp-2 flex justify-between gap-2 text-lg font-semibold text-gray-800">
           {movie.title}
           <Button onClick={() => toggleFavorite(movie.id)} variant="outline">
-            {isFavorite(movie.id) ? "❤️" : "🤍"}
+            {isLiked ? "❤️" : "🤍"}
           </Button>
         </h2>
 

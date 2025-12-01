@@ -1,7 +1,5 @@
 import { z } from "zod";
 
-// Schéma pour un film individuel (strictement selon la doc TMDB)
-
 // z.object est un z.ZodSchema
 export const movieSchema = z.object({
   adult: z.boolean(),

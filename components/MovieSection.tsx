@@ -1,4 +1,5 @@
 import { MovieType } from "@/lib/schemas/movie";
+
 import { MovieCard } from "./MovieCard";
 
 interface MovieSectionProps {

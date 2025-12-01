@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { MovieCard } from "@/components/MovieCard";
-import { SpinnerCustom } from "@/components/ui/spinner";
+import { MovieCardSkeleton } from "@/components/MovieCardSkeleton";
 import { getMovieDetails } from "@/lib/api/tmdb";
 import { MovieType } from "@/lib/schemas/movie";
 import { useFavoritesStore } from "@/lib/store/useFavoritesStore";
@@ -22,10 +22,11 @@ export default function FavoritesPage() {
         return;
       }
 
-      console.log("favorites", favorites);
       setIsLoading(true);
+
       const moviePromises = favorites.map((id) => getMovieDetails(id));
       const results = await Promise.all(moviePromises);
+
       setMovies(results);
       setIsLoading(false);
     }
@@ -34,10 +35,19 @@ export default function FavoritesPage() {
   }, [favorites]);
 
   if (isLoading) {
+    const skeletonCount = favorites.length > 0 ? favorites.length : 8;
+
     return (
       <main className="container mx-auto px-4 py-8">
         <h1 className="mb-8 text-3xl font-bold">Mes Favoris</h1>
-        <SpinnerCustom />
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {movies.map((movie) => (
+            <MovieCardSkeleton key={movie.id} />
+          ))}
+          {[...Array(skeletonCount)].map((_, index) => (
+            <MovieCardSkeleton key={index} />
+          ))}
+        </div>
       </main>
     );
   }

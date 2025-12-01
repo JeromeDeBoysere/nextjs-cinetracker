@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { MovieSection } from "@/components/MovieSection";
 import {
   getPopularMovies,
@@ -13,6 +15,15 @@ export default async function Home() {
   return (
     <main className="container mx-auto px-4 py-8">
       <h1 className="mb-8 text-4xl font-bold">CineTracker</h1>
+
+      <ul>
+        <li>
+          <Link href="/">Accueil</Link>
+        </li>
+        <li>
+          <Link href="/favorites">Mes favoris</Link>
+        </li>
+      </ul>
 
       <MovieSection
         title="Films populaires"

@@ -4,6 +4,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { MovieType } from "@/lib/schemas/movie";
 import { useFavoritesStore } from "@/lib/store/useFavoritesStore";
 
@@ -39,14 +44,28 @@ export function MovieCard({ movie }: MovieCardProps) {
             Pas d'image
           </div>
         )}
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              onClick={() => toggleFavorite(movie.id)}
+              variant="outline"
+              className="absolute top-2 right-2"
+            >
+              {isLiked ? "❤️" : "🤍"}
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>
+              {isLiked ? "Retirer de mes favoris" : "Ajouter à mes favoris"}
+            </p>
+          </TooltipContent>
+        </Tooltip>
       </div>
 
       <div className="p-4">
-        <h2 className="mb-2 line-clamp-2 flex justify-between gap-2 text-lg font-semibold text-gray-800">
-          {movie.id} {movie.title}
-          <Button onClick={() => toggleFavorite(movie.id)} variant="outline">
-            {isLiked ? "❤️" : "🤍"}
-          </Button>
+        <h2 className="mb-2 line-clamp-2 text-lg font-semibold text-gray-800">
+          {movie.title}
         </h2>
 
         <p className="mb-3 line-clamp-3 text-gray-600">{movie.overview}</p>

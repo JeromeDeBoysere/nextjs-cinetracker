@@ -30,7 +30,7 @@ export function MovieCard({ movie }: MovieCardProps) {
   const isLiked = mounted && isFavorite(movie.id);
 
   return (
-    <div className="overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-xl">
+    <div className="card overflow-hidden">
       <div className="relative aspect-[2/3] w-full bg-gray-200">
         {movie.poster_path ? (
           <Image

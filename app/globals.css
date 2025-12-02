@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -45,7 +45,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #eee;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -117,6 +117,59 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: linear-gradient(to bottom, #fff, #eee);
+    min-height: 100vh;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-outfit);
+  }
+}
+
+@layer components {
+  /*.bg-header {background: radial-gradient(ellipse at 50% 100%, #0b95f1, #1179e9, #2359df, #312fd3, #2c19aa, #1a1d6a, #0a1031, #000000);*/
+  /*}*/
+  .bg-header {
+    --opacity: 85%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 5;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 50%);
+
+    background: radial-gradient(
+      circle at 50% -20%,
+      rgba(11, 149, 241, var(--opacity)),
+      rgba(15, 125, 234, var(--opacity)),
+      rgba(30, 99, 226, var(--opacity)),
+      rgba(44, 67, 216, var(--opacity)),
+      rgba(40, 48, 174, var(--opacity)),
+      rgba(25, 39, 109, var(--opacity)),
+      rgba(10, 20, 50, var(--opacity)),
+      rgba(0, 0, 0, var(--opacity))
+    );
+  }
+
+  .card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
+  }
+
+  body {
+    /*--opacity: 100%;*/
+    /*background: radial-gradient(ellipse at 50% 100%, #0b95f1, #1179e9, #2359df, #312fd3, #2c19aa, #1a1d6a, #0a1031, #000000) 50% 85% fixed;*/
   }
 }

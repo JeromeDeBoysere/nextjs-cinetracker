@@ -14,7 +14,7 @@ CineTracker allows users to browse popular, trending, and upcoming movies. Users
 | State Management | Zustand, TanStack Query               |
 | Validation       | Zod                                   |
 | UI Components    | shadcn/ui (Radix UI), Lucide React    |
-| Styling          | Tailwind CSS v4, CVA                  |
+| Styling          | Tailwind CSS v4, CVA, Google Fonts    |
 | Utilities        | date-fns, clsx, tailwind-merge        |
 | Code Quality     | ESLint 9, Prettier, Husky, Commitlint |
 
@@ -85,6 +85,9 @@ lib/hooks/        Custom React hooks
 - ✅ TanStack Query setup
 - ✅ Responsive design
 - ✅ shadcn/ui components (Button, Tooltip, Skeleton, Spinner)
+- ✅ Header with navigation and gradient design
+- ✅ Footer component
+- ✅ Custom typography (Inter, Outfit fonts)
 - ✅ ESLint + Prettier + Husky + Commitlint
 
 ### Roadmap

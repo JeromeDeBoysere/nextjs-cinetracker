@@ -132,29 +132,9 @@
 }
 
 @layer components {
-  /*.bg-header {background: radial-gradient(ellipse at 50% 100%, #0b95f1, #1179e9, #2359df, #312fd3, #2c19aa, #1a1d6a, #0a1031, #000000);*/
-  /*}*/
   .bg-header {
-    --opacity: 85%;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
     z-index: 5;
-    backdrop-filter: blur(20px);
     box-shadow: 0 0 20px rgba(0, 0, 0, 50%);
-
-    background: radial-gradient(
-      circle at 50% -20%,
-      rgba(11, 149, 241, var(--opacity)),
-      rgba(15, 125, 234, var(--opacity)),
-      rgba(30, 99, 226, var(--opacity)),
-      rgba(44, 67, 216, var(--opacity)),
-      rgba(40, 48, 174, var(--opacity)),
-      rgba(25, 39, 109, var(--opacity)),
-      rgba(10, 20, 50, var(--opacity)),
-      rgba(0, 0, 0, var(--opacity))
-    );
   }
 
   .card {

@@ -1,31 +1,64 @@
+import Image from "next/image";
+import { Suspense } from "react";
+
 import { MovieSection } from "@/components/MovieSection";
 import {
-  getPopularMovies,
-  getTrendingMovies,
-  getUpcomingMovies,
-} from "@/lib/api/tmdb";
+  PopularMoviesSection,
+  TrendingMoviesSection,
+  UpcomingMoviesSection,
+} from "@/components/MovieSectionAsync";
 
-export default async function Home() {
-  const popularMovies = await getPopularMovies();
-  const trendingMovies = await getTrendingMovies();
-  const upcomingMovies = await getUpcomingMovies();
+const TMDB_IMAGE_BASE = process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_URL;
 
+export default function Home() {
   return (
     <main className="container mx-auto px-4 py-8">
       <h1 className="mb-8 text-4xl font-bold">CineTracker</h1>
 
-      <MovieSection
-        title="Films populaires"
-        movies={popularMovies.results.slice(0, 8)}
-      />
-      <MovieSection
-        title="Films tendances"
-        movies={trendingMovies.results.slice(0, 8)}
-      />
-      <MovieSection
-        title="Films à venir"
-        movies={upcomingMovies.results.slice(0, 8)}
-      />
+      <div className="relative min-h-96">
+        <Image
+          src={`${TMDB_IMAGE_BASE}/original/iJQIbOPm81fPEGKt5BPuZmfnA54.jpg`}
+          alt=""
+          fill
+          className="object-cover"
+        />
+      </div>
+
+      <Suspense
+        fallback={
+          <MovieSection
+            title="Films populaires"
+            isLoading={true}
+            skeletonCount={4}
+          />
+        }
+      >
+        <PopularMoviesSection />
+      </Suspense>
+
+      <Suspense
+        fallback={
+          <MovieSection
+            title="Films tendances"
+            isLoading={true}
+            skeletonCount={4}
+          />
+        }
+      >
+        <TrendingMoviesSection />
+      </Suspense>
+
+      <Suspense
+        fallback={
+          <MovieSection
+            title="Films à venir"
+            isLoading={true}
+            skeletonCount={4}
+          />
+        }
+      >
+        <UpcomingMoviesSection />
+      </Suspense>
     </main>
   );
 }

@@ -1,17 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { MovieType } from "@/lib/schemas/movie";
-import { useFavoritesStore } from "@/lib/store/useFavoritesStore";
+
+import { AddToFavorite } from "./AddToFavorite";
 
 const TMDB_IMAGE_BASE = process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_URL;
 
@@ -20,16 +14,6 @@ interface MovieCardProps {
 }
 
 export function HeroCarouselMovieCard({ movie }: MovieCardProps) {
-  const [mounted, setMounted] = useState(false);
-  const { toggleFavorite, isFavorite } = useFavoritesStore();
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
-
-  const isLiked = mounted && isFavorite(movie.id);
-
   return (
     <Card className="card py-0">
       <CardContent className="flex flex-col items-stretch p-0 lg:flex-row">
@@ -46,22 +30,7 @@ export function HeroCarouselMovieCard({ movie }: MovieCardProps) {
               Pas d'image
             </div>
           )}
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                onClick={() => toggleFavorite(movie.id)}
-                variant="outline"
-                className="absolute top-2 right-2"
-              >
-                {isLiked ? "❤️" : "🤍"}
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>
-                {isLiked ? "Retirer de mes favoris" : "Ajouter à mes favoris"}
-              </p>
-            </TooltipContent>
-          </Tooltip>
+          <AddToFavorite movie={movie} />
         </div>
 
         <div className="card flex flex-col rounded-b-xl bg-white shadow-none lg:flex-[1] lg:rounded-xl">

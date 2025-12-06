@@ -1,16 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
-import { Button } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { MovieType } from "@/lib/schemas/movie";
-import { useFavoritesStore } from "@/lib/store/useFavoritesStore";
+
+import { AddToFavorite } from "./AddToFavorite";
 
 const TMDB_IMAGE_BASE = process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_URL;
 
@@ -19,18 +13,8 @@ interface MovieCardProps {
 }
 
 export function MovieCard({ movie }: MovieCardProps) {
-  const [mounted, setMounted] = useState(false);
-  const { toggleFavorite, isFavorite } = useFavoritesStore();
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
-
-  const isLiked = mounted && isFavorite(movie.id);
-
   return (
-    <div className="card overflow-hidden">
+    <div className="card relative flex flex-col overflow-hidden">
       <div className="relative aspect-[2/3] w-full bg-gray-200">
         {movie.poster_path ? (
           <Image
@@ -45,25 +29,10 @@ export function MovieCard({ movie }: MovieCardProps) {
           </div>
         )}
 
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              onClick={() => toggleFavorite(movie.id)}
-              variant="outline"
-              className="absolute top-2 right-2"
-            >
-              {isLiked ? "❤️" : "🤍"}
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>
-              {isLiked ? "Retirer de mes favoris" : "Ajouter à mes favoris"}
-            </p>
-          </TooltipContent>
-        </Tooltip>
+        <AddToFavorite movie={movie} />
       </div>
 
-      <div className="p-4">
+      <div className="relative z-0 flex-1 p-4">
         <h2 className="mb-2 line-clamp-2 text-lg font-semibold text-gray-800">
           {movie.title}
         </h2>
@@ -76,6 +45,13 @@ export function MovieCard({ movie }: MovieCardProps) {
           </span>
           <span>{new Date(movie.release_date).getFullYear()}</span>
         </div>
+
+        <Image
+          src={`${TMDB_IMAGE_BASE}/w45${movie.poster_path}`}
+          alt={movie.title}
+          fill
+          className="absolute inset-0 -z-10 scale-[2_-2] object-cover object-bottom opacity-25 blur-xl"
+        />
       </div>
     </div>
   );

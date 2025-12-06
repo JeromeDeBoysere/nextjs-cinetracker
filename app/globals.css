@@ -135,6 +135,8 @@
   .bg-header {
     z-index: 5;
     box-shadow: 0 0 20px rgba(0, 0, 0, 50%);
+    background: linear-gradient(to bottom, black, #2c19aac2);
+    backdrop-filter: blur(20px) saturate(2);
   }
 
   .card {
@@ -146,6 +148,43 @@
 
   .card:hover {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
+  }
+
+  [data-slot="tooltip-trigger"] {
+    border: none;
+    background: #cacaca4a;
+    backdrop-filter: blur(10px);
+  }
+
+  [data-slot="carousel-content"] {
+    position: relative;
+    z-index: 0;
+  }
+
+  @media (min-width: 1024px) {
+    [data-slot="carousel-content"]::before {
+      content: "";
+      width: 15%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background: linear-gradient(to right, white, transparent);
+      pointer-events: none;
+    }
+
+    [data-slot="carousel-content"]::after {
+      content: "";
+      width: 15%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 10;
+      background: linear-gradient(to left, white, transparent);
+      pointer-events: none;
+    }
   }
 
   body {

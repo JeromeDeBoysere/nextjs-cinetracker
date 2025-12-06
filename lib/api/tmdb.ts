@@ -35,6 +35,11 @@ export async function getPopularMovies(): Promise<MoviesResponseType> {
   return fetchTMDB("/movie/popular", moviesResponseSchema);
 }
 
+// Récupérer les films tendance du jour
+export async function getTrendingMoviesDay(): Promise<MoviesResponseType> {
+  return fetchTMDB("/trending/movie/day", moviesResponseSchema);
+}
+
 // Récupérer les films tendance (de la semaine)
 export async function getTrendingMovies(): Promise<MoviesResponseType> {
   return fetchTMDB("/trending/movie/week", moviesResponseSchema);

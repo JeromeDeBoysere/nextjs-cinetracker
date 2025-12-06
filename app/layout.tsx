@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${inter.variable} ${outfit.variable} flex min-h-screen flex-col antialiased`}
+        className={`${inter.variable} ${outfit.variable} flex min-h-screen flex-col bg-gray-500 antialiased`}
       >
         <Providers>
           <Header />

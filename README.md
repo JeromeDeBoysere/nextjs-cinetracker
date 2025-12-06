@@ -2,6 +2,10 @@
 
 A movie discovery application built with Next.js 16 and the TMDB API.
 
+## 🚀 Live Demo
+
+**[View Live Demo →](https://nextjs-cinetracker-p5opgvf32-jerome-de-boyseres-projects.vercel.app/)**
+
 ## Overview
 
 CineTracker allows users to browse popular, trending, and upcoming movies. Users can save favorites locally and explore movie details.
@@ -84,11 +88,14 @@ lib/hooks/        Custom React hooks
 - ✅ Skeleton loading components for better UX
 - ✅ TanStack Query setup
 - ✅ Responsive design
-- ✅ shadcn/ui components (Button, Tooltip, Skeleton, Spinner)
+- ✅ shadcn/ui components (Button, Tooltip, Skeleton, Spinner, Carousel)
+- ✅ Hero carousel with Embla (autoplay, dots navigation, peek effect)
+- ✅ Blurred poster background on movie cards
 - ✅ Header with navigation and gradient design
 - ✅ Footer component
 - ✅ Custom typography (Inter, Outfit fonts)
 - ✅ ESLint + Prettier + Husky + Commitlint
+- ✅ Deployment on Vercel
 
 ### Roadmap
 
@@ -99,7 +106,6 @@ lib/hooks/        Custom React hooks
 - [ ] Movie detail page (`/movie/[id]`)
 - [ ] ISR (Incremental Static Regeneration)
 - [ ] SEO metadata
-- [ ] Deployment on Vercel
 
 ## Credits
 

@@ -139,15 +139,32 @@
     backdrop-filter: blur(20px) saturate(2);
   }
 
-  .card {
-    background-color: #fff;
+  .card,
+  [data-slot="card"] {
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
     transition: box-shadow 0.3s ease-in-out;
   }
 
-  .card:hover {
+  .card:hover,
+  [data-slot="card"]:hover {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 0px;
+  }
+
+  .card .p-4 {
+    position: relative;
+    background-color: #fff;
+  }
+
+  .card .p-4::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to left, #ffffffb0, #0000 50px),
+      linear-gradient(to right, #ffffffb0, #0000 50px),
+      linear-gradient(#ffffff00, #fff);
+    z-index: -9;
   }
 
   [data-slot="tooltip-trigger"] {
@@ -185,10 +202,5 @@
       background: linear-gradient(to left, white, transparent);
       pointer-events: none;
     }
-  }
-
-  body {
-    /*--opacity: 100%;*/
-    /*background: radial-gradient(ellipse at 50% 100%, #0b95f1, #1179e9, #2359df, #312fd3, #2c19aa, #1a1d6a, #0a1031, #000000) 50% 85% fixed;*/
   }
 }

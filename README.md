@@ -1,14 +1,45 @@
 # CineTracker
 
-A movie discovery application built with Next.js 16 and the TMDB API.
+> **Personal training project** - Learning Next.js 16, React 19 and modern web development.
+>
+> **Status:** 🚧 In Development | [See progress →](#features)
+>
+> **Author:** Jérôme de Boysère ([LinkedIn](https://www.linkedin.com/in/jeromedeboysere/))
 
-## 🚀 Live Demo
+A movie discovery application built with Next.js 16 and the TMDB API. Browse popular, trending, and upcoming movies, and save your favorites locally.
 
-**[View Live Demo →](https://nextjs-cinetracker-p5opgvf32-jerome-de-boyseres-projects.vercel.app/)**
+**[View Live Demo on Vercel →](https://nextjs-cinetracker-p5opgvf32-jerome-de-boyseres-projects.vercel.app/)**
 
-## Overview
+## Features
 
-CineTracker allows users to browse popular, trending, and upcoming movies. Users can save favorites locally and explore movie details.
+### Implemented
+
+- ✅ Home page with popular, trending, and upcoming movies
+- ✅ TMDB API integration with Zod validation
+- ✅ Optimized images with Next.js Image component
+- ✅ Favorites system with Zustand (localStorage persistence)
+- ✅ Favorites page with skeleton loading states
+- ✅ Skeleton loading components for better UX
+- ✅ Suspense and streaming for progressive loading
+- ✅ TanStack Query setup
+- ✅ Responsive design
+- ✅ shadcn/ui components (Button, Tooltip, Skeleton, Spinner, Carousel)
+- ✅ Hero carousel with Embla (autoplay, dots navigation, peek effect)
+- ✅ Blurred poster background on movie cards
+- ✅ Header with navigation and gradient design
+- ✅ Footer component
+- ✅ Custom typography (Inter, Outfit fonts)
+- ✅ ESLint + Prettier + Husky + Commitlint
+- ✅ Deployment on Vercel
+
+### Roadmap
+
+- [ ] Movie search with debounce
+- [ ] Genre filtering
+- [ ] Pagination
+- [ ] Movie detail page (`/movie/[id]`)
+- [ ] ISR (Incremental Static Regeneration)
+- [ ] SEO metadata
 
 ## Tech Stack
 
@@ -75,37 +106,6 @@ lib/hooks/        Custom React hooks
 | `pnpm build`  | Build for production      |
 | `pnpm lint`   | Run ESLint                |
 | `pnpm format` | Format code with Prettier |
-
-## Features
-
-### Implemented
-
-- ✅ Home page with popular, trending, and upcoming movies
-- ✅ TMDB API integration with Zod validation
-- ✅ Optimized images with Next.js Image component
-- ✅ Favorites system with Zustand (localStorage persistence)
-- ✅ Favorites page with skeleton loading states
-- ✅ Skeleton loading components for better UX
-- ✅ TanStack Query setup
-- ✅ Responsive design
-- ✅ shadcn/ui components (Button, Tooltip, Skeleton, Spinner, Carousel)
-- ✅ Hero carousel with Embla (autoplay, dots navigation, peek effect)
-- ✅ Blurred poster background on movie cards
-- ✅ Header with navigation and gradient design
-- ✅ Footer component
-- ✅ Custom typography (Inter, Outfit fonts)
-- ✅ ESLint + Prettier + Husky + Commitlint
-- ✅ Deployment on Vercel
-
-### Roadmap
-
-- [ ] Suspense and streaming for progressive loading
-- [ ] Movie search with debounce
-- [ ] Genre filtering
-- [ ] Pagination
-- [ ] Movie detail page (`/movie/[id]`)
-- [ ] ISR (Incremental Static Regeneration)
-- [ ] SEO metadata
 
 ## Credits
 

@@ -8,7 +8,7 @@
 
 A movie discovery application built with Next.js 16 and the TMDB API. Browse popular, trending, and upcoming movies, and save your favorites locally.
 
-**[View Live Demo on Vercel →](https://nextjs-cinetracker-p5opgvf32-jerome-de-boyseres-projects.vercel.app/)**
+**[View Live Demo on Vercel →](https://nextjs-cinetracker.vercel.app/)**
 
 ## Features
 

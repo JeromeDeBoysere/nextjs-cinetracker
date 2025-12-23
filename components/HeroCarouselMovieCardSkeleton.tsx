@@ -19,7 +19,7 @@ export function HeroCarouselMovieCardSkeleton() {
           </div>
         </div>
 
-        <div className="card flex flex-col rounded-b-xl bg-white shadow-none lg:flex-[1] lg:rounded-xl">
+        <div className="card flex flex-col rounded-xl bg-white shadow-none lg:flex-[1] lg:rounded-xl">
           <div className="p-4">
             {/* Title skeleton */}
             <Skeleton className="mb-2 h-6 w-full" />

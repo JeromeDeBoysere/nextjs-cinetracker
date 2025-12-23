@@ -16,18 +16,20 @@ export function MovieCard({ movie }: MovieCardProps) {
   return (
     <div className="card relative flex flex-col overflow-hidden">
       <div className="relative aspect-[2/3] w-full bg-gray-200">
-        {movie.poster_path ? (
-          <Image
-            src={`${TMDB_IMAGE_BASE}/w500${movie.poster_path}`}
-            alt={movie.title}
-            fill
-            className="object-cover"
-          />
-        ) : (
-          <div className="flex h-full items-center justify-center text-gray-400">
-            Pas d'image
-          </div>
-        )}
+        <a href={`/movie/${movie.id}`}>
+          {movie.poster_path ? (
+            <Image
+              src={`${TMDB_IMAGE_BASE}/w500${movie.poster_path}`}
+              alt={movie.title}
+              fill
+              className="object-cover transition-transform duration-300 hover:scale-[1.02]"
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center text-gray-400">
+              Pas d'image
+            </div>
+          )}
+        </a>
 
         <AddToFavorite movie={movie} />
       </div>

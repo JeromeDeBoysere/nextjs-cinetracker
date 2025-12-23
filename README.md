@@ -14,30 +14,31 @@ A movie discovery application built with Next.js 16 and the TMDB API. Browse pop
 
 ### Implemented
 
-- ✅ Home page with popular, trending, and upcoming movies
-- ✅ TMDB API integration with Zod validation
-- ✅ Optimized images with Next.js Image component
-- ✅ Favorites system with Zustand (localStorage persistence)
-- ✅ Favorites page with skeleton loading states
-- ✅ Skeleton loading components for better UX
-- ✅ Suspense and streaming for progressive loading
-- ✅ TanStack Query setup
-- ✅ Responsive design
-- ✅ shadcn/ui components (Button, Tooltip, Skeleton, Spinner, Carousel)
-- ✅ Hero carousel with Embla (autoplay, dots navigation, peek effect)
-- ✅ Blurred poster background on movie cards
-- ✅ Header with navigation and gradient design
-- ✅ Footer component
-- ✅ Custom typography (Inter, Outfit fonts)
-- ✅ ESLint + Prettier + Husky + Commitlint
-- ✅ Deployment on Vercel
+- [x] Home page with popular, trending, and upcoming movies
+- [x] TMDB API integration with Zod validation
+- [x] Optimized images with Next.js Image component
+- [x] Favorites system with Zustand (localStorage persistence)
+- [x] Favorites page with skeleton loading states
+- [x] Skeleton loading components for better UX
+- [x] Suspense and streaming for progressive loading
+- [x] TanStack Query setup
+- [x] Responsive design
+- [x] shadcn/ui components (Button, Tooltip, Skeleton, Spinner, Carousel)
+- [x] Hero carousel with Embla (autoplay, dots navigation, peek effect)
+- [x] Clickable movie images with hover effect
+- [x] Movie detail page (`/movie/[id]`)
+- [x] Blurred poster background on movie cards
+- [x] Header with navigation and gradient design
+- [x] Footer component
+- [x] Custom typography (Inter, Outfit fonts)
+- [x] ESLint + Prettier + Husky + Commitlint
+- [x] Deployment on Vercel
 
 ### Roadmap
 
 - [ ] Movie search with debounce
 - [ ] Genre filtering
 - [ ] Pagination
-- [ ] Movie detail page (`/movie/[id]`)
 - [ ] ISR (Incremental Static Regeneration)
 - [ ] SEO metadata
 

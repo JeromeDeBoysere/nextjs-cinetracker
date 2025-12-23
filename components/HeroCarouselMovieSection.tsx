@@ -35,7 +35,7 @@ export function HeroCarouselMovieSection({
 }: HeroCarouselMovieSectionProps) {
   return (
     <section className="mb-12">
-      <h2 className="mb-8 text-3xl font-bold text-gray-900">{title}</h2>
+      <h2 className="mb-8 text-3xl font-bold text-gray-100">{title}</h2>
 
       <Carousel
         className="w-full"

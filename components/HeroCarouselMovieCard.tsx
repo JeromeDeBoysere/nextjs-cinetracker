@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { MovieType } from "@/lib/schemas/movie";
@@ -16,24 +17,29 @@ interface MovieCardProps {
 export function HeroCarouselMovieCard({ movie }: MovieCardProps) {
   return (
     <Card className="card py-0">
-      <CardContent className="flex flex-col items-stretch p-0 lg:flex-row">
+      <CardContent className="flex flex-col items-stretch overflow-hidden rounded-xl p-0 lg:flex-row">
         <div className="relative aspect-video w-full overflow-hidden rounded-t-xl bg-gray-200 lg:flex-[2] lg:rounded-xl lg:rounded-e-none">
-          {movie.backdrop_path ? (
-            <Image
-              src={`${TMDB_IMAGE_BASE}/original${movie.backdrop_path}`}
-              alt={movie.title}
-              fill
-              className="object-cover"
-            />
-          ) : (
-            <div className="flex h-full items-center justify-center text-gray-400">
-              Pas d'image
-            </div>
-          )}
+          <Link
+            href={`/movie/${movie.id}`}
+            className="block h-full w-full cursor-pointer"
+          >
+            {movie.backdrop_path ? (
+              <Image
+                src={`${TMDB_IMAGE_BASE}/original${movie.backdrop_path}`}
+                alt={movie.title}
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-[1.02]"
+              />
+            ) : (
+              <div className="flex h-full items-center justify-center text-gray-400">
+                Pas d'image
+              </div>
+            )}
+          </Link>
           <AddToFavorite movie={movie} />
         </div>
 
-        <div className="card flex flex-col rounded-b-xl bg-white shadow-none lg:flex-[1] lg:rounded-xl">
+        <div className="card flex flex-col rounded-xl bg-white shadow-none lg:flex-[1] lg:rounded-xl">
           <div className="p-4">
             <h2 className="mb-2 line-clamp-2 text-lg font-semibold text-gray-800">
               {movie.title}

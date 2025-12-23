@@ -5,7 +5,7 @@ export function Header() {
     <header className="bg-header fixed top-0 right-0 left-0 text-white">
       <div className="container mx-auto px-4 py-8">
         <div className="flex items-center gap-5">
-          <div>Logo</div>
+          <div>Projet 2 : CineTracker</div>
           <Navigation />
         </div>
       </div>

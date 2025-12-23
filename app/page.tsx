@@ -11,56 +11,61 @@ import {
 
 export default function Home() {
   return (
-    <main className="container mx-auto px-4 py-8">
-      <h1 className="mb-8 text-4xl font-bold">CineTracker</h1>
+    <>
+      <section className="bg-carousel">
+        <div className="container mx-auto px-4 py-8 pt-33">
+          <h1 className="mb-8 text-4xl font-bold text-white">CineTracker</h1>
+          <Suspense
+            fallback={
+              <HeroCarouselMovieSection
+                title="A la une"
+                isLoading={true}
+                skeletonCount={5}
+              />
+            }
+          >
+            <TrendingHeroCarouselMoviesSection />
+          </Suspense>
+        </div>
+      </section>
 
-      <Suspense
-        fallback={
-          <HeroCarouselMovieSection
-            title="A la unex"
-            isLoading={true}
-            skeletonCount={5}
-          />
-        }
-      >
-        <TrendingHeroCarouselMoviesSection />
-      </Suspense>
+      <div className="container mx-auto px-4 py-8">
+        <Suspense
+          fallback={
+            <MovieSection
+              title="Films populaires"
+              isLoading={true}
+              skeletonCount={10}
+            />
+          }
+        >
+          <PopularMoviesSection />
+        </Suspense>
 
-      <Suspense
-        fallback={
-          <MovieSection
-            title="Films populaires"
-            isLoading={true}
-            skeletonCount={10}
-          />
-        }
-      >
-        <PopularMoviesSection />
-      </Suspense>
+        <Suspense
+          fallback={
+            <MovieSection
+              title="Films tendances"
+              isLoading={true}
+              skeletonCount={10}
+            />
+          }
+        >
+          <TrendingMoviesSection />
+        </Suspense>
 
-      <Suspense
-        fallback={
-          <MovieSection
-            title="Films tendances"
-            isLoading={true}
-            skeletonCount={10}
-          />
-        }
-      >
-        <TrendingMoviesSection />
-      </Suspense>
-
-      <Suspense
-        fallback={
-          <MovieSection
-            title="Films à venir"
-            isLoading={true}
-            skeletonCount={10}
-          />
-        }
-      >
-        <UpcomingMoviesSection />
-      </Suspense>
-    </main>
+        <Suspense
+          fallback={
+            <MovieSection
+              title="Films à venir"
+              isLoading={true}
+              skeletonCount={10}
+            />
+          }
+        >
+          <UpcomingMoviesSection />
+        </Suspense>
+      </div>
+    </>
   );
 }

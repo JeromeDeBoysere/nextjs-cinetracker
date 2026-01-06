@@ -28,23 +28,34 @@ A movie discovery application built with Next.js 16 and the TMDB API. Browse pop
 
 ### Roadmap
 
+#### Features
+
 - [ ] Movie search with debounce
 - [ ] Genre filtering
 - [ ] Pagination
 - [ ] ISR (Incremental Static Regeneration)
 - [ ] SEO metadata
 
+#### Testing & CI/CD
+
+- [ ] Vitest + React Testing Library setup
+- [ ] Unit tests (utility functions)
+- [ ] Component tests (MovieCard, etc.)
+- [ ] GitHub Actions CI pipeline
+
 ## Tech Stack
 
-| Category         | Technologies                          |
-| ---------------- | ------------------------------------- |
-| Framework        | Next.js 16, React 19, TypeScript 5    |
-| State Management | Zustand, TanStack Query               |
-| Validation       | Zod                                   |
-| UI Components    | shadcn/ui (Radix UI), Lucide React    |
-| Styling          | Tailwind CSS v4, CVA, Google Fonts    |
-| Utilities        | date-fns, clsx, tailwind-merge        |
-| Code Quality     | ESLint 9, Prettier, Husky, Commitlint |
+| Category         | Technologies                            |
+| ---------------- | --------------------------------------- |
+| Framework        | Next.js 16, React 19, TypeScript 5      |
+| State Management | Zustand, TanStack Query                 |
+| Validation       | Zod                                     |
+| UI Components    | shadcn/ui (Radix UI), Lucide React      |
+| Styling          | Tailwind CSS v4, CVA, Google Fonts      |
+| Utilities        | date-fns, clsx, tailwind-merge          |
+| Code Quality     | ESLint 9, Prettier, Husky, Commitlint   |
+| Testing          | Vitest, React Testing Library (planned) |
+| CI/CD            | GitHub Actions (planned)                |
 
 ## Getting Started
 
@@ -99,6 +110,7 @@ lib/hooks/        Custom React hooks
 | `pnpm build`  | Build for production      |
 | `pnpm lint`   | Run ESLint                |
 | `pnpm format` | Format code with Prettier |
+| `pnpm test`   | Run tests (planned)       |
 
 ## Credits
 

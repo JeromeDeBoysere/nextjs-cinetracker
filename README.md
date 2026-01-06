@@ -15,22 +15,14 @@ A movie discovery application built with Next.js 16 and the TMDB API. Browse pop
 ### Implemented
 
 - [x] Home page with popular, trending, and upcoming movies
+- [x] Movie detail page with dynamic routing (`/movie/[id]`)
 - [x] TMDB API integration with Zod validation
-- [x] Optimized images with Next.js Image component
 - [x] Favorites system with Zustand (localStorage persistence)
-- [x] Favorites page with skeleton loading states
-- [x] Skeleton loading components for better UX
-- [x] Suspense and streaming for progressive loading
-- [x] TanStack Query setup
-- [x] Responsive design
-- [x] shadcn/ui components (Button, Tooltip, Skeleton, Spinner, Carousel)
-- [x] Hero carousel with Embla (autoplay, dots navigation, peek effect)
-- [x] Clickable movie images with hover effect
-- [x] Movie detail page (`/movie/[id]`)
-- [x] Blurred poster background on movie cards
-- [x] Header with navigation and gradient design
-- [x] Footer component
-- [x] Custom typography (Inter, Outfit fonts)
+- [x] Suspense, streaming, and skeleton loading states
+- [x] TanStack Query for data fetching
+- [x] Hero carousel with Embla
+- [x] Responsive design with shadcn/ui components
+- [x] Next.js Image optimization
 - [x] ESLint + Prettier + Husky + Commitlint
 - [x] Deployment on Vercel
 

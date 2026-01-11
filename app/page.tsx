@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <section className="bg-carousel">
-        <div className="container mx-auto px-4 py-8 pt-33">
+        <div className="container mx-auto px-4 py-8">
           <h1 className="mb-8 text-4xl font-bold text-white">CineTracker</h1>
           <Suspense
             fallback={

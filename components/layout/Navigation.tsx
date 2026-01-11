@@ -12,7 +12,6 @@ import { useFavoritesStore } from "@/lib/store/useFavoritesStore";
 export function Navigation() {
   const { favorites } = useFavoritesStore();
   const navLinks = [
-    { href: "/", label: "Accueil" },
     { href: "/favorites", label: "Mes favoris (" + favorites.length + ") ❤️" },
   ] as const;
 

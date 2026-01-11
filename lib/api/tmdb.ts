@@ -54,3 +54,28 @@ export async function getUpcomingMovies(): Promise<MoviesResponseType> {
 export async function getMovieDetails(movieId: number): Promise<MovieType> {
   return fetchTMDB(`/movie/${movieId}`, movieSchema);
 }
+
+/**
+ * Search movies by query string
+ * @param query - Search term
+ * @param page - Page number (default: 1)
+ * @returns Paginated search results
+ */
+export async function searchMovies(
+  query: string,
+  page: number = 1
+): Promise<MoviesResponseType> {
+  const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=fr-FR&query=${encodeURIComponent(query)}&page=${page}`;
+
+  // ISR: cache 1h, puis revalide en background
+  const response = await fetch(url, {
+    next: { revalidate: 3600 },
+  });
+
+  if (!response.ok) {
+    throw new Error(`TMDB API error: ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return moviesResponseSchema.parse(data);
+}

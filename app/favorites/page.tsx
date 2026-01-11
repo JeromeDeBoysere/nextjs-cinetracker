@@ -38,7 +38,7 @@ export default function FavoritesPage() {
     const skeletonCount = favorites.length > 0 ? favorites.length : 8;
 
     return (
-      <main className="container mx-auto mt-20 px-4 py-8">
+      <main className="container mx-auto px-4 py-8">
         <h1 className="mb-8 text-3xl font-bold">Mes Favoris</h1>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {movies.map((movie) => (

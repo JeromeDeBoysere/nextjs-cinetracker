@@ -4,6 +4,7 @@ import {
   getPopularMovies,
   getTrendingMovies,
   getUpcomingMovies,
+  searchMovies,
 } from "@/lib/api/tmdb";
 
 export function usePopularMovies() {
@@ -27,5 +28,19 @@ export function useUpcomingMovies() {
     queryKey: ["movies", "upcoming"],
     queryFn: getUpcomingMovies,
     staleTime: 5 * 60 * 1000, // 5 minutes
+  });
+}
+
+/**
+ * Search movies with TanStack Query
+ * @param query - Search term (debounced value recommended)
+ * @returns Query result with data, isLoading, error, etc.
+ */
+export function useSearchMovies(query: string) {
+  return useQuery({
+    queryKey: ["search", "movie", query], // Unique key
+    queryFn: () => searchMovies(query), // Function to call
+    enabled: query.length > 0, // Do not fetch if query is empty
+    staleTime: 5 * 60 * 1000, // Cache duration
   });
 }

@@ -63,9 +63,9 @@ export function MovieDetail({ movie }: MovieDetailProps) {
   const cast = movie.credits.cast.slice(0, 6);
 
   return (
-    <div className="min-h-screen">
+    <>
       {/* Hero Section */}
-      <section className="bg-details-cover relative mt-20 overflow-hidden">
+      <section className="bg-details-cover relative overflow-hidden">
         {/* Backdrop Image */}
         {movie.backdrop_path && (
           <div className="absolute inset-0 -z-10">
@@ -204,6 +204,6 @@ export function MovieDetail({ movie }: MovieDetailProps) {
           </div>
         </section>
       )}
-    </div>
+    </>
   );
 }

@@ -53,7 +53,8 @@ A movie discovery application built with Next.js 16 and the TMDB API. Browse pop
 | UI Components    | shadcn/ui (Radix UI), Lucide React      |
 | Styling          | Tailwind CSS v4, CVA, Google Fonts      |
 | Utilities        | date-fns, clsx, tailwind-merge          |
-| Code Quality     | ESLint 9, Prettier, Husky, Commitlint   |
+| Code Quality     | ESLint, Prettier                        |
+| Git Hooks        | Husky, lint-staged, Commitlint          |
 | Testing          | Vitest, React Testing Library (planned) |
 | CI/CD            | GitHub Actions (planned)                |
 
@@ -104,13 +105,40 @@ lib/hooks/        Custom React hooks
 
 ## Scripts
 
-| Command       | Description               |
-| ------------- | ------------------------- |
-| `pnpm dev`    | Start development server  |
-| `pnpm build`  | Build for production      |
-| `pnpm lint`   | Run ESLint                |
-| `pnpm format` | Format code with Prettier |
-| `pnpm test`   | Run tests (planned)       |
+| Command             | Description               |
+| ------------------- | ------------------------- |
+| `pnpm dev`          | Start development server  |
+| `pnpm build`        | Build for production      |
+| `pnpm start`        | Start production server   |
+| `pnpm lint`         | Run ESLint                |
+| `pnpm lint:fix`     | Run ESLint with auto-fix  |
+| `pnpm format`       | Format code with Prettier |
+| `pnpm format:check` | Check code formatting     |
+| `pnpm test`         | Run tests (planned)       |
+
+## Git Hooks
+
+This project uses **Husky** to enforce code quality before commits and pushes:
+
+| Hook         | Trigger      | Action                              |
+| ------------ | ------------ | ----------------------------------- |
+| `pre-commit` | `git commit` | TypeScript check + lint-staged      |
+| `commit-msg` | `git commit` | Validate commit message format      |
+| `pre-push`   | `git push`   | Full production build (like Vercel) |
+
+### Commit Message Format
+
+This project follows [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+feat: add new feature
+fix: resolve bug
+docs: update documentation
+style: formatting changes
+refactor: code restructuring
+test: add tests
+chore: maintenance tasks
+```
 
 ## Credits
 

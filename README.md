@@ -1,4 +1,4 @@
-# CineTracker
+# Project 2 - CineTracker
 
 > **Personal training project** - Learning Next.js 16, React 19 and modern web development.
 >
